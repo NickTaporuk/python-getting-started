@@ -1,5 +1,15 @@
 dj-database-url==0.4.1
-Django==1.9.7
 gunicorn==19.6.0
 psycopg2==2.6.1
 whitenoise==2.0.6
+Django==1.10.2
+django-crispy-forms==1.6.0
+django-debug-toolbar==1.6
+django-filter==0.15.3
+django-markdown-deux==1.0.5
+django-pagedown==0.1.1
+django-rest-swagger==2.1.0
+djangorestframework==3.5.1
+djangorestframework-jwt==1.8.0
+PyJWT==1.4.2
+

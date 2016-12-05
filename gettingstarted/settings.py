@@ -36,7 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
+    'apartment'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -111,9 +112,13 @@ USE_TZ = True
 
 
 # Update database configuration with $DATABASE_URL.
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
-
+if os.environ.get("DATABASE_URL"):
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
+else:
+    DATABASE_URL = 'postgres://admin_apartment:admin_apartment@localhost/apartment_heroku'
+    db_from_env = dj_database_url.config(conn_max_age=500, default=DATABASE_URL)
+    DATABASES['default'].update(db_from_env)
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 

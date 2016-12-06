@@ -12,4 +12,4 @@ django-rest-swagger==2.1.0
 djangorestframework==3.5.1
 djangorestframework-jwt==1.8.0
 PyJWT==1.4.2
-
+django-dotenv==1.4.1
